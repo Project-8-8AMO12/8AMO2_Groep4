@@ -9,4 +9,6 @@ class Artikelen extends Model
     protected $fillable = [
         'title', 'contentartikel', 'userid'
     ];
+
+    protected $primaryKey = 'artikelid';
 }

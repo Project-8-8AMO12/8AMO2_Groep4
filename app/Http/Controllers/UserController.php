@@ -2,83 +2,91 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function registerView()
     {
-        //
+        return view('auth.register');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function registerUser(Request $request)
     {
-        //
+        $username = $request->get('naam');
+        $password = $request->get('wachtwoord');
+        $userrank = $request->get('userRight');
+
+        try {
+            $this->validate($request, [
+                'userrank' => ['required', 'integer'],
+                'naam' => ['required', 'string', 'max:255'],
+                'wachtwoord' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $user = new User();
+        $user->userrank = $userrank;
+        $user->username = $username;
+        $user->password = Hash::make($password);
+
+        $user->save();
+
+        $user_data = array(
+            'username' => $username,
+            'password' => $password
+        );
+
+        if (Auth::attempt($user_data)) {
+            return redirect('/');
+        } else {
+            return back()->with('error', 'Something went wrong.');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function loginView()
     {
-        //
+        return view('auth.login');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function loginUser(Request $request)
     {
-        //
+        $user = $request->get('naam');
+        if (User::where('username', '=', $user)->exists()) {
+            try {
+                $this->validate($request, [
+                    'naam' => 'required',
+                    'wachtwoord' => 'required'
+                ]);
+            } catch (ValidationException $e) {
+                echo $e;
+            }
+
+            $user_data = array(
+                'username' => $request->get('naam'),
+                'password' => $request->get('wachtwoord')
+            );
+
+            if (Auth::attempt($user_data)) {
+                return redirect('/');
+            } else {
+                return back()->with('error', 'Wrong Login Details');
+            }
+        } else {
+            return back()->with('error', 'Please enter login details');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function logout()
     {
-        //
+        Auth::logout();
+        return redirect('login');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

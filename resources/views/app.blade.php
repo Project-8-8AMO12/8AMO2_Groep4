@@ -22,22 +22,43 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="cursus">Cursussen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link scroll-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scroll-link" href="about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scroll-link" href="cursus">Cursussen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scroll-link" href="contact">Contact</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @if(!Auth::check())
+                            <li class="nav-item">
+                                <a class="nav-link" href="login">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="register">{{ __('Register') }}</a>
+                            </li>
+                        @else
+                            <h1 class="text-center my-auto mr-2 text-white">{{ Auth::user()->username }}</h1>
+                            <li class="nav-item dropdown my-auto">
+                                <a class="nav-item btn btn-danger" href="logout">
+                                    {{ __('Logout') }}
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
         </nav>
     </header>
 

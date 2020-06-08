@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Vragen extends Model
 {
     protected $fillable = [
-        'title', 'contentA', 'contentQ', 'image'
+        'title', 'content', 'image'
     ];
 
+    protected $primaryKey = 'vraagid';
 }
