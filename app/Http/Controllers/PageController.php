@@ -21,4 +21,8 @@ class PageController extends Controller
     public function cursus() {
         return view('cursus');
     }
+
+    public function users() {
+        return view('users');
+    }
 }
