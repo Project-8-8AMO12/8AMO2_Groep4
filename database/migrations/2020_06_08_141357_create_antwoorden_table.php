@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVragenTable extends Migration
+class CreateAntwoordenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateVragenTable extends Migration
      */
     public function up()
     {
-        Schema::create('vragen', function (Blueprint $table) {
-            $table->bigIncrements('vraagid');
+        Schema::create('antwoorden', function (Blueprint $table) {
+            $table->bigIncrements('antwoordid');
+            $table->integer('vraagid');
             $table->string('title', 255);
             $table->string('content', 2000);
             $table->string('image', 255);
@@ -29,6 +30,6 @@ class CreateVragenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vragen');
+        Schema::dropIfExists('antwoorden');
     }
 }

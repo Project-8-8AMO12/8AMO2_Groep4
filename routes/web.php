@@ -15,3 +15,10 @@ Route::get('/', 'PageController@index');
 Route::get('about', 'PageController@about');
 Route::get('contact', 'PageController@contact');
 Route::get('cursus', 'PageController@cursus');
+
+Route::get('register', 'UserController@registerView');
+Route::post('register', 'UserController@registerUser');
+
+Route::get('login', 'UserController@loginView');
+Route::post('login', 'UserController@loginUser');
+Route::get('logout', 'UserController@logout');

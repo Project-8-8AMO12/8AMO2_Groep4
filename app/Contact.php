@@ -10,4 +10,5 @@ class Contact extends Model
         'title', 'subject', 'content', 'nameperson'
     ];
 
+    protected $primaryKey = 'contactid';
 }
