@@ -15,9 +15,7 @@
     <header>
         <!-- Top menu -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="">
-                <h1 class="text-center">{{ env('APP_NAME') }}</h1>
-            </a>
+            <h1 class="text-center my-auto ml-2 text-white">{{ env('APP_NAME') }}</h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,16 +44,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="login">{{ __('Login') }}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="register">{{ __('Register') }}</a>
-                            </li>
                         @else
-                            <h1 class="text-center my-auto mr-2 text-white">{{ Auth::user()->username }}</h1>
-                            <li class="nav-item dropdown my-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="register">{{ __('Create User') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="users">{{ __('Users') }}</a>
+                            </li>
+                            <li class="nav-item my-auto">
                                 <a class="nav-item btn btn-danger" href="logout">
                                     {{ __('Logout') }}
                                 </a>
                             </li>
+                            <h1 class="text-center my-auto ml-2 text-white">{{ Auth::user()->username }}</h1>
                         @endif
                     </ul>
                 </div>

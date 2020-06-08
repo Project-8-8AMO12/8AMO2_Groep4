@@ -12,13 +12,18 @@
 */
 
 Route::get('/', 'PageController@index');
-Route::get('about', 'PageController@about');
-Route::get('contact', 'PageController@contact');
-Route::get('cursus', 'PageController@cursus');
+Route::get('/about', 'PageController@about');
+Route::get('/contact', 'PageController@contact');
+Route::get('/cursus', 'PageController@cursus');
 
 Route::get('register', 'UserController@registerView');
 Route::post('register', 'UserController@registerUser');
 
-Route::get('login', 'UserController@loginView');
-Route::post('login', 'UserController@loginUser');
-Route::get('logout', 'UserController@logout');
+Route::get('/users', 'UserController@showUsers');
+Route::get('editUser/{id}', 'UserController@showUserDetails');
+Route::post('editUser/{id}', 'UserController@editUser');
+Route::get('deleteUser/{id}', 'UserController@deleteUser');
+
+Route::get('/login', 'UserController@loginView');
+Route::post('/login', 'UserController@loginUser');
+Route::get('/logout', 'UserController@logout');
