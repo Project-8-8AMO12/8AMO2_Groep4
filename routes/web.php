@@ -13,7 +13,8 @@
 
 Route::get('/', 'PageController@index');
 Route::get('/about', 'PageController@about');
-Route::get('/contact', 'PageController@contact');
+Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'PageController@contact');
 Route::get('/cursus', 'PageController@cursus');
 
 Route::get('register', 'UserController@registerView');
