@@ -16,6 +16,7 @@ Route::get('/about', 'PageController@about');
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 Route::get('/cursus', 'PageController@cursus');
+Route::get('/activiteiten', 'ActiviteitenController@index');
 
 Route::get('register', 'UserController@registerView');
 Route::post('register', 'UserController@registerUser');
