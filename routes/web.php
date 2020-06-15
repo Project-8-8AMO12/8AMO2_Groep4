@@ -13,9 +13,11 @@
 
 Route::get('/', 'PageController@index');
 Route::get('/about', 'PageController@about');
-Route::get('/contact', 'PageController@contact');
+Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@store');
 Route::get('/cursus', 'PageController@cursus');
 Route::get('/error', 'PageController@error')->name('error');
+Route::get('/activiteiten', 'ActiviteitenController@index');
 
 Route::group(['middleware' => 'checkLogin'], function () {
     Route::get('/adminpanel', 'AdminPanelController@index');
