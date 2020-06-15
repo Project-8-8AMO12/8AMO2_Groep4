@@ -2,27 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\AboutContent;
+use App\CursusContent;
+use App\HomeContent;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index() {
-        return view('index');
+        $HomeContent = HomeContent::all();
+
+        return view('index', ['Home' => $HomeContent]);
     }
 
     public function about() {
-        return view('about');
-    }
+        $AboutContent = AboutContent::all();
 
-    public function contact() {
-        return view('contact');
+        return view('about', ['About' => $AboutContent]);
     }
 
     public function cursus() {
-        return view('cursus');
+        $CursusContent = CursusContent::all();
+
+        return view('cursus', ['Content' => $CursusContent]);
     }
 
-    public function users() {
-        return view('users');
+    public function error(Request $request) {
+        $errorcode = $request->get('code');
+        $errormessage = $request->get('message');
+
+        return view('auth.error', ['code' => $errorcode, 'message' => $errormessage]);
     }
+
 }

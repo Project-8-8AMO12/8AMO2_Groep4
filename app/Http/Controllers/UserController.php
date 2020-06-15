@@ -17,15 +17,15 @@ class UserController extends Controller
 
     public function registerUser(Request $request)
     {
-        $username = $request->get('naam');
-        $password = $request->get('wachtwoord');
+        $username = $request->get('username');
+        $password = $request->get('password');
         $userrank = $request->get('userRight');
 
         try {
             $this->validate($request, [
                 'userrank' => ['required', 'integer'],
-                'naam' => ['required', 'string', 'max:255'],
-                'wachtwoord' => ['required', 'string', 'min:8', 'confirmed'],
+                'username' => ['required', 'string', 'max:255'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
         } catch (ValidationException $e) {
             echo $e;
