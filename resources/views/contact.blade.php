@@ -7,7 +7,7 @@
                     <div class="card-header">{{ __('Contact') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/contact">
+                        <form method="POST" action="contact">
                             @csrf
 
                             <div class="form-group row">

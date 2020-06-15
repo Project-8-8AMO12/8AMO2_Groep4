@@ -20,6 +20,7 @@ class CreateContactTable extends Migration
             $table->string('namePerson', 255);
             $table->string('mailPerson', 255);
             $table->string('contactPerson', 255);
+            $table->timestamps();
         });
     }
 

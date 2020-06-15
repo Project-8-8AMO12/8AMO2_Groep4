@@ -14,7 +14,7 @@
 Route::get('/', 'PageController@index');
 Route::get('/about', 'PageController@about');
 Route::get('/contact', 'ContactController@index');
-Route::post('/contact', 'PageController@contact');
+Route::post('/contact', 'ContactController@store');
 Route::get('/cursus', 'PageController@cursus');
 
 Route::get('register', 'UserController@registerView');
