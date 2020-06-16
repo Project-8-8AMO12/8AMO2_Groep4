@@ -67,8 +67,13 @@
                 </div>
         </nav>
     </header>
+    <div class="app">
+        <navigation-component :user="{{ Auth::check() ? Auth::user() : "{}" }}"></navigation-component>
+        @yield('content')
+    </div>
 
-    @yield('content')
-
+    <footer>
+        <script src="/js/app.js"> </script>
+    </footer>
     </body>
 </html>
