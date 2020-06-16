@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AboutContent;
+use App\ActiviteitContent;
 use App\CursusContent;
 use App\HomeContent;
 use Illuminate\Http\Request;
@@ -14,11 +15,13 @@ class AdminPanelController extends Controller
         $HomeContent = HomeContent::all();
         $AboutContent = AboutContent::all();
         $CursusContent = CursusContent::all();
+        $ActiviteitContent = ActiviteitContent::all();
 
         return view('adminpanel', [
             'HContent' => $HomeContent,
             'AContent' => $AboutContent,
             'CContent' => $CursusContent,
+            'ATContent' => $ActiviteitContent,
         ]);
     }
 
@@ -30,7 +33,7 @@ class AdminPanelController extends Controller
         return view('homeedit', ['HContent' => $HomeContent]);
     }
 
-    public function updateHome(Request $request, $id) {
+    public function updateHome(Request $request) {
 
         try {
             $this->validate($request, [
@@ -44,14 +47,14 @@ class AdminPanelController extends Controller
         $section1 = $request->get('section1');
         $section2 = $request->get('section2');
 
-        $Homecontent = HomeContent::where('id', $id)->first();
+        $Homecontent = HomeContent::where('id', 1)->first();
 
         $Homecontent->section1 = $section1;
         $Homecontent->section2 = $section2;
 
         $Homecontent->save();
 
-        return redirect('/');
+        return redirect('/adminpanel');
 
     }
 
@@ -86,36 +89,19 @@ class AdminPanelController extends Controller
         $title3 = $request->get('title3');
         $section3 = $request->get('section3');
 
-        if (AboutContent::where('intro', '=', $intro)->exists()) {
-            $AboutContent = AboutContent::where('intro', $intro)->first();
+        $AboutContent = AboutContent::where('id', 1)->first();
 
-            $AboutContent->intro = $intro;
-            $AboutContent->title1 = $title1;
-            $AboutContent->section1 = $section1;
-            $AboutContent->title2 = $title2;
-            $AboutContent->section2 = $section2;
-            $AboutContent->title3 = $title3;
-            $AboutContent->section3 = $section3;
+        $AboutContent->intro = $intro;
+        $AboutContent->title1 = $title1;
+        $AboutContent->section1 = $section1;
+        $AboutContent->title2 = $title2;
+        $AboutContent->section2 = $section2;
+        $AboutContent->title3 = $title3;
+        $AboutContent->section3 = $section3;
 
-            $AboutContent->save();
+        $AboutContent->save();
 
-            return redirect('/');
-        } else {
-            $AboutContent = new AboutContent();
-
-            $AboutContent->intro = $intro;
-            $AboutContent->title1 = $title1;
-            $AboutContent->section1 = $section1;
-            $AboutContent->title2 = $title2;
-            $AboutContent->section2 = $section2;
-            $AboutContent->title3 = $title3;
-            $AboutContent->section3 = $section3;
-
-            $AboutContent->save();
-
-            return redirect('/');
-        }
-
+        return redirect('/adminpanel');
     }
 
     // Cursus admin
@@ -127,6 +113,39 @@ class AdminPanelController extends Controller
     }
 
     public function updateCursus() {
+        return redirect('/adminpanel');
+    }
+
+    // Home admin
+
+    public function showActiviteiten() {
+        $ActiviteitenContent = ActiviteitContent::all();
+
+        return view('activiteitedit', ['ATContent' => $ActiviteitenContent]);
+    }
+
+    public function updateActiviteiten(Request $request, $id) {
+
+        try {
+            $this->validate($request, [
+                'title' => ['required', 'string'],
+                'content' => ['required', 'string'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $title = $request->get('title');
+        $content = $request->get('content');
+
+        $ActiviteitenContent = ActiviteitContent::where('id', $id)->first();
+
+        $ActiviteitenContent->title = $title;
+        $ActiviteitenContent->content = $content;
+
+        $ActiviteitenContent->save();
+
+        return redirect('/adminpanel');
 
     }
 

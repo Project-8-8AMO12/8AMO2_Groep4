@@ -9,13 +9,27 @@
                     <form method="POST" action="/aboutEdit/{id}">
                         @csrf
 
+                        <div class="form-group row">
+                            <label for="intro" class="col-md-1 col-form-label text-md-right">{{ __('Intro') }}</label>
+
+                            <div class="col-md-11">
+                                <input id="intro" type="text" class="form-control @error('intro') is-invalid @enderror" name="intro" value="{{ $AContent[0]->intro }}" required autocomplete="intro" autofocus>
+
+                                @error('intro')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <h1 class="text-center">Sectie 1</h1>
 
                         <div class="form-group row">
                             <label for="title" class="col-md-1 col-form-label text-md-right">{{ __('Titel') }}</label>
 
                             <div class="col-md-11">
-                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title1" value="{{ $AContent[0]->title1 }}" required autocomplete="title" autofocus>
+                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title1" value="{{ $AContent[0]->title1 }}" required autocomplete="title1">
 
                                 @error('title')
                                 <span class="invalid-feedback" role="alert">
@@ -29,7 +43,7 @@
                             <label for="content" class="col-md-1 col-form-label text-md-right">{{ __('Content') }}</label>
 
                             <div class="col-md-11">
-                                <textarea id="content" type="text" class="form-control @error('content') is-invalid @enderror" name="content1" rows="5" required autocomplete="content">{{ $AContent[0]->section1 }}</textarea>
+                                <textarea id="content" type="text" class="form-control @error('content') is-invalid @enderror" name="section1" rows="5" required autocomplete="section1">{{ $AContent[0]->section1 }}</textarea>
 
                                 @error('content')
                                 <span class="invalid-feedback" role="alert">
@@ -45,7 +59,7 @@
                             <label for="title" class="col-md-1 col-form-label text-md-right">{{ __('Titel') }}</label>
 
                             <div class="col-md-11">
-                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title2" value="{{ $AContent[0]->title2 }}" required autocomplete="title" autofocus>
+                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title2" value="{{ $AContent[0]->title2 }}" required autocomplete="title2">
 
                                 @error('title')
                                 <span class="invalid-feedback" role="alert">
@@ -59,7 +73,7 @@
                             <label for="content" class="col-md-1 col-form-label text-md-right">{{ __('Content') }}</label>
 
                             <div class="col-md-11">
-                                <textarea id="content" type="text" class="form-control @error('content') is-invalid @enderror" name="content2" rows="5" required autocomplete="content">{{ $AContent[0]->section2 }}</textarea>
+                                <textarea id="content" type="text" class="form-control @error('content') is-invalid @enderror" name="section2" rows="5" required autocomplete="section2">{{ $AContent[0]->section2 }}</textarea>
 
                                 @error('content')
                                 <span class="invalid-feedback" role="alert">
@@ -75,7 +89,7 @@
                             <label for="title" class="col-md-1 col-form-label text-md-right">{{ __('Titel') }}</label>
 
                             <div class="col-md-11">
-                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title3" value="{{ $AContent[0]->title3 }}" required autocomplete="title" autofocus>
+                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title3" value="{{ $AContent[0]->title3 }}" required autocomplete="title3">
 
                                 @error('title')
                                 <span class="invalid-feedback" role="alert">
@@ -89,7 +103,7 @@
                             <label for="content" class="col-md-1 col-form-label text-md-right">{{ __('Content') }}</label>
 
                             <div class="col-md-11">
-                                <textarea id="content" type="text" class="form-control @error('content') is-invalid @enderror" name="content3" rows="5" required autocomplete="content">{{ $AContent[0]->section3 }}</textarea>
+                                <textarea id="content" type="text" class="form-control @error('content') is-invalid @enderror" name="section3" rows="5" required autocomplete="section3">{{ $AContent[0]->section3 }}</textarea>
 
                                 @error('content')
                                 <span class="invalid-feedback" role="alert">

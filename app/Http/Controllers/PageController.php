@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AboutContent;
+use App\ActiviteitContent;
 use App\CursusContent;
 use App\HomeContent;
 use Illuminate\Http\Request;
@@ -24,7 +25,13 @@ class PageController extends Controller
     public function cursus() {
         $CursusContent = CursusContent::all();
 
-        return view('cursus', ['Content' => $CursusContent]);
+        return view('cursus', ['Cursussen' => $CursusContent]);
+    }
+
+    public function activiteit() {
+        $ActiviteitContent = ActiviteitContent::all();
+
+        return view('activiteit', ['Activiteiten' => $ActiviteitContent]);
     }
 
     public function error(Request $request) {

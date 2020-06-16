@@ -99,8 +99,8 @@ class UserController extends Controller
 
         try {
             $this->validate($request, [
-                'userrank' => ['required', 'integer'],
-                'username' => ['required', 'string', 'max:255'],
+                'userrank' => 'integer',
+                'username' => ['string', 'max:255'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
         } catch (ValidationException $e) {

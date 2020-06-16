@@ -14,7 +14,7 @@
                                 <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Titel') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" required autocomplete="title" autofocus>
 
                                     @error('title')
                                     <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                                 <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Beschrijving') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea  id="content" class="form-control" rows="7" @error('content') is-invalid @enderror name="content" value="{{ old('content')}}" required autocomplete="title" autofocus>
+                                    <textarea id="content" class="form-control" rows="7" @error('content') is-invalid @enderror name="content" required autocomplete="content">
                                     </textarea>
                                     @error('content')
                                     <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Uw Naam') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="title" autofocus>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name">
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Uw E-mail Adress') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="title" autofocus>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -90,7 +90,6 @@
                                         {{ __('Verstuur') }}
                                     </button>
                                 </div>
-                            </div>
                             </div>
                         </form>
                     </div>
