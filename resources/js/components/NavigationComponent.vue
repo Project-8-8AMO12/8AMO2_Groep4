@@ -34,10 +34,10 @@
                 </ul>
                 <!-- if you'r logged in -->
                 <ul v-if="isLoggedIn == true" class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li v-if="user.userrank" class="nav-item">
                         <a class="nav-link" href="register">register</a>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="user.userrank" class="nav-item">
                         <a class="nav-link" href="users">users</a>
                     </li>
 
