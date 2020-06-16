@@ -3,7 +3,7 @@
     <div class="container text-center">
         <h1 style="padding-top: 20px">Alles over de vereniging</h1>
         <div class="row">
-            <div class="mx-auto" style="width: 40vw; padding-top: 50px">
+            <div class="mx-auto" style="width: 40vw;" padding-top: 50px>
                 <div class="card">
                     <div class="card-body">
                         <p class="card-text">
