@@ -11,11 +11,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="nav-link scroll-link" href="/"><img class="" src="images/Logo-Imkers-Leiden.png" alt="Logo"></a>
-=======
+
                         <a class="nav-link scroll-link" href="/"><img class="" src="" alt="Logo"></a>
->>>>>>> master
                     </li>
                     <li class="nav-item my-auto">
                         <a class="nav-link scroll-link" href="about">About</a>
@@ -37,7 +35,7 @@
                         <a class="nav-link" href="/login">login</a>
                     </li>
                 </ul>
-<<<<<<< HEAD
+
                     <!-- if you'r logged in -->
                 <ul v-if="isLoggedIn == true" class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -57,7 +55,7 @@
                             </a>
                         </li>
                         <h1 class="text-center my-auto ml-2 text-white">{{user.username}}</h1>
-=======
+                </ul>
                 <!-- if you'r logged in -->
                 <ul v-if="isLoggedIn == true" class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -77,10 +75,9 @@
                         </a>
                     </li>
                     <h1 class="text-center my-auto ml-2 text-white">{{user.username}}</h1>
->>>>>>> master
+
                 </ul>
             </div>
-
         </nav>
     </header>
 </template>
@@ -96,11 +93,9 @@
             console.log('navigation mounted.');
             console.log('user: ',this.user);
             if (this.user.username !== null || this.user.username !== ""){
-<<<<<<< HEAD
                this.isLoggedIn = true;
-=======
+
                 this.isLoggedIn = true;
->>>>>>> master
             }
         },
         data: function () {
