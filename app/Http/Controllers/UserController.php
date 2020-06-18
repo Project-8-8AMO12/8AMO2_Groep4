@@ -17,10 +17,6 @@ class UserController extends Controller
 
     public function registerUser(Request $request)
     {
-        $username = $request->get('username');
-        $password = $request->get('password');
-        $userrank = $request->get('userRight');
-
         try {
             $this->validate($request, [
                 'userrank' => ['required', 'integer'],
@@ -30,6 +26,10 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             echo $e;
         }
+
+        $username = $request->get('username');
+        $password = $request->get('password');
+        $userrank = $request->get('userRight');
 
         $user = new User();
         $user->userrank = $userrank;
@@ -77,7 +77,7 @@ class UserController extends Controller
     public function logout(){
         Auth::logout();
 
-        return redirect('login');
+        return redirect('/');
     }
 
     public function showUsers() {
@@ -93,19 +93,19 @@ class UserController extends Controller
     }
 
     public function editUser(Request $request, $id) {
-        $userrank = $request->get('userRight');
-        $username = $request->get('username');
-        $password = $request->get('password');
-
         try {
             $this->validate($request, [
-                'userrank' => 'integer',
-                'username' => ['string', 'max:255'],
+                'userrank' => ['required', 'integer'],
+                'username' => ['required', 'string', 'max:255'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
         } catch (ValidationException $e) {
             echo $e;
         }
+
+        $userrank = $request->get('userRight');
+        $username = $request->get('username');
+        $password = $request->get('password');
 
         $user = User::where('id', $id)->first();
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AboutContent;
 use App\ActiviteitContent;
 use App\CursusContent;
+use App\CursusEntry;
 use App\HomeContent;
 use Illuminate\Http\Request;
 
@@ -24,14 +25,18 @@ class PageController extends Controller
 
     public function cursus() {
         $CursusContent = CursusContent::all();
+        $CursusEntry = CursusEntry::all();
 
-        return view('cursus', ['Cursussen' => $CursusContent]);
+        return view('cursus', [
+            'CursusContent' => $CursusContent,
+            'CursusEntry' => $CursusEntry
+        ]);
     }
 
     public function activiteit() {
         $ActiviteitContent = ActiviteitContent::all();
 
-        return view('activiteit', ['Activiteiten' => $ActiviteitContent]);
+        return view('activiteiten', ['Activiteiten' => $ActiviteitContent]);
     }
 
     public function error(Request $request) {

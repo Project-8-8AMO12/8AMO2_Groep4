@@ -11,47 +11,45 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link scroll-link" href="/"><img class="" src="images/Logo-Imkers-Leiden.png" alt="Logo"></a>
+                        <a class="nav-link scroll-link" href="/"><img class="" src="images/Logo-Imkers-Leiden.png" alt="Home/Logo"></a>
                     </li>
                     <li class="nav-item my-auto">
-                        <a class="nav-link scroll-link" href="about">About</a>
+                        <a class="nav-link scroll-link" href="/about">About</a>
                     </li>
                     <li class="nav-item my-auto">
-                        <a class="nav-link scroll-link" href="cursus">Cursussen</a>
+                        <a class="nav-link scroll-link" href="/activiteiten">Activiteiten</a>
                     </li>
                     <li class="nav-item my-auto">
-                        <a class="nav-link scroll-link" href="contact">Contact</a>
+                        <a class="nav-link scroll-link" href="/cursus">Cursussen</a>
+                    </li>
+                    <li class="nav-item my-auto">
+                        <a class="nav-link scroll-link" href="/contact">Contact</a>
                     </li>
                 </ul>
 
-
-
-                    <!-- if you'r logged in -->
+                    <!-- if you're logged in -->
                 <ul v-if="isLoggedIn == false" class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="login">login</a>
+                        <a class="nav-link" href="login">Login</a>
                     </li>
                 </ul>
-                <!-- if you'r logged in -->
+                <!-- if you're logged in -->
                 <ul v-if="isLoggedIn == true" class="navbar-nav ml-auto">
                     <li v-if="user.userrank" class="nav-item">
-                        <a class="nav-link" href="register">register</a>
+                        <a class="nav-link" href="/register">Register</a>
                     </li>
                     <li v-if="user.userrank" class="nav-item">
-                        <a class="nav-link" href="users">users</a>
+                        <a class="nav-link" href="/users">Users</a>
                     </li>
-
-                    <!--                    end if-->
                     <li class="nav-item">
-                        <a class="nav-link" href="adminpanel"></a>
+                        <a class="nav-link" href="/adminpanel">Admin Panel</a>
                     </li>
                     <li class="nav-item my-auto">
-                        <a class="nav-item btn btn-danger" v-on:click="isLoggedIn = false" href="logout">
-                            logout
+                        <a class="nav-item btn btn-danger" v-on:click="isLoggedIn = false" href="/logout">
+                            Logout
                         </a>
                     </li>
                     <h1 class="text-center my-auto ml-2 text-white">{{user.username}}</h1>
-
                 </ul>
             </div>
         </nav>

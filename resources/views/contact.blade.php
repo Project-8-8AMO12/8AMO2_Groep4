@@ -1,4 +1,5 @@
-@extends('app')
+@extends('template.app')
+
 @section('content')
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">

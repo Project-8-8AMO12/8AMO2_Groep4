@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -9,11 +10,24 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+    protected $toTruncate = ['users', 'homecontents', 'aboutcontents', 'cursuscontents', 'cursusentries', 'activiteitcontents'];
+
     public function run()
     {
-         $this->call(UserTable::class);
-         $this->call(HomeContentsTable::class);
-         $this->call(AboutContentsTable::class);
-         $this->call(CursusContentsTable::class);
+        Model::unguard();
+
+        foreach($this->toTruncate as $table) {
+            DB::table($table)->truncate();
+        }
+
+        $this->call(UserTable::class);
+        $this->call(HomeContentsTable::class);
+        $this->call(AboutContentsTable::class);
+        $this->call(ActiviteitContentsTable::class);
+        $this->call(CursusContentsTable::class);
+        $this->call(CursusEntriesTable::class);
+
+        Model::reguard();
     }
+
 }

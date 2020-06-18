@@ -8,6 +8,6 @@ class CursusContent extends Model
 {
     protected $table = "cursuscontents";
     protected $fillable = [
-        'title1', 'section1'
+        'section1', 'section2', 'section3'
     ];
 }

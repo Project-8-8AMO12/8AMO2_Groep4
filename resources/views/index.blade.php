@@ -1,4 +1,4 @@
-@extends('app')
+@extends('template.app')
 @section('content')
     <div class="card mb-3 rounded-0 border-0">
         <img class="card-img-top" src="{{ asset('images/Imkers-Leiden.png') }}" alt="Card image cap">

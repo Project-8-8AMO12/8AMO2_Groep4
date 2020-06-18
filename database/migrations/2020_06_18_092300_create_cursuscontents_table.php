@@ -15,8 +15,9 @@ class CreateCursuscontentsTable extends Migration
     {
         Schema::create('cursuscontents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title1', 255);
             $table->text('section1');
+            $table->text('section2');
+            $table->text('section3');
             $table->timestamps();
         });
     }

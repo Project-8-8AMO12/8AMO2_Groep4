@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AboutContent;
 use App\ActiviteitContent;
 use App\CursusContent;
+use App\CursusEntry;
 use App\HomeContent;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -14,13 +15,15 @@ class AdminPanelController extends Controller
     public function index() {
         $HomeContent = HomeContent::all();
         $AboutContent = AboutContent::all();
-        $CursusContent = CursusContent::all();
         $ActiviteitContent = ActiviteitContent::all();
+        $CursusContent = CursusContent::all();
+        $CursusEntry = CursusEntry::all();
 
         return view('adminpanel', [
             'HContent' => $HomeContent,
             'AContent' => $AboutContent,
             'CContent' => $CursusContent,
+            'CEContent' => $CursusEntry,
             'ATContent' => $ActiviteitContent,
         ]);
     }
@@ -30,10 +33,10 @@ class AdminPanelController extends Controller
     public function showHome() {
         $HomeContent = HomeContent::all();
 
-        return view('homeedit', ['HContent' => $HomeContent]);
+        return view('editpages.homeedit', ['HContent' => $HomeContent]);
     }
 
-    public function updateHome(Request $request) {
+    public function updateHome(Request $request, $id) {
 
         try {
             $this->validate($request, [
@@ -47,7 +50,7 @@ class AdminPanelController extends Controller
         $section1 = $request->get('section1');
         $section2 = $request->get('section2');
 
-        $Homecontent = HomeContent::where('id', 1)->first();
+        $Homecontent = HomeContent::where('id', $id)->first();
 
         $Homecontent->section1 = $section1;
         $Homecontent->section2 = $section2;
@@ -63,10 +66,11 @@ class AdminPanelController extends Controller
     public function showAbout() {
         $AboutContent = AboutContent::all();
 
-        return view('aboutedit', ['AContent' => $AboutContent]);
+        return view('editpages.aboutedit', ['AContent' => $AboutContent]);
     }
 
-    public function updateAbout(Request $request) {
+    public function updateAbout(Request $request, $id) {
+
         try {
             $this->validate($request, [
                 'intro' => ['required', 'string'],
@@ -89,7 +93,7 @@ class AdminPanelController extends Controller
         $title3 = $request->get('title3');
         $section3 = $request->get('section3');
 
-        $AboutContent = AboutContent::where('id', 1)->first();
+        $AboutContent = AboutContent::where('id', $id)->first();
 
         $AboutContent->intro = $intro;
         $AboutContent->title1 = $title1;
@@ -104,27 +108,118 @@ class AdminPanelController extends Controller
         return redirect('/adminpanel');
     }
 
-    // Cursus admin
+    // Cursus Page admin
 
     public function showCursus() {
         $CursusContent = CursusContent::all();
 
-        return view('cursusedit', ['CContent' => $CursusContent]);
+        return view('editpages.cursusedit', ['CContent' => $CursusContent]);
     }
 
-    public function updateCursus() {
+    public function updateBasisCursus(Request $request, $id) {
+
+        try {
+            $this->validate($request, [
+                'section1' => ['required', 'string'],
+                'section2' => ['required', 'string'],
+                'section3' => ['required', 'string'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $section1 = $request->get('section1');
+        $section2 = $request->get('section2');
+        $section3 = $request->get('section3');
+
+        $CursusContent = CursusContent::where('id', $id)->first();
+
+        $CursusContent->section1 = $section1;
+        $CursusContent->section2 = $section2;
+        $CursusContent->section3 = $section3;
+
+        $CursusContent->save();
+
         return redirect('/adminpanel');
     }
 
-    // Home admin
+    // Cursus Entry admin
 
-    public function showActiviteiten() {
-        $ActiviteitenContent = ActiviteitContent::all();
+    public function createCursusEntryView() {
+        $CursusEntry = CursusEntry::all();
 
-        return view('activiteitedit', ['ATContent' => $ActiviteitenContent]);
+        return view('editpages.createcursusentry', ['CEContent' => $CursusEntry]);
     }
 
-    public function updateActiviteiten(Request $request, $id) {
+    public function createCursusEntry(Request $request) {
+
+        try {
+            $this->validate($request, [
+                'title' => ['required', 'string'],
+                'content' => ['required', 'string'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $title = $request->get('title');
+        $content = $request->get('content');
+
+        $CursusEntry = new CursusEntry();
+
+        $CursusEntry->title = $title;
+        $CursusEntry->content = $content;
+
+        $CursusEntry->save();
+
+        return redirect('/adminpanel');
+    }
+
+    public function showCursusEntry() {
+        $CursusEntry = CursusEntry::all();
+
+        return view('editpages.cursusentryedit', ['CEContent' => $CursusEntry]);
+    }
+
+    public function updateCursusEntry(Request $request, $id) {
+
+        try {
+            $this->validate($request, [
+                'title' => ['required', 'string'],
+                'content' => ['required', 'string'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $title = $request->get('title');
+        $content = $request->get('content');
+
+        $CursusEntry = CursusEntry::where('id', $id)->first();
+
+        $CursusEntry->title = $title;
+        $CursusEntry->content = $content;
+
+        $CursusEntry->save();
+
+        return redirect('/adminpanel');
+    }
+
+    public function deleteCursusEntry($id) {
+        CursusEntry::find($id)->delete();
+
+        return redirect('/adminpanel');
+    }
+
+    // Activiteit admin
+
+    public function showActiviteit() {
+        $ActiviteitenContent = ActiviteitContent::all();
+
+        return view('editpages.activiteitedit', ['ATContent' => $ActiviteitenContent]);
+    }
+
+    public function updateActiviteit(Request $request, $id) {
 
         try {
             $this->validate($request, [
