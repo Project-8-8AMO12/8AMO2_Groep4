@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #f0f0f0;
+  border-bottom: 2px solid black;
+}
+
+.navbar-text {
+  color: #9fb23a !important;
+  text-decoration: none !important;
+}
+

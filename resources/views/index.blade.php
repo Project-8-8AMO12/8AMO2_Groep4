@@ -18,7 +18,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img" alt="Responsive image">
+                        <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img w-100" alt="Responsive image ">
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img" alt="Responsive image">
+                        <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img w-100" alt="Responsive image">
                     </div>
                 </div>
             </div>
