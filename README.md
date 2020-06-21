@@ -10,18 +10,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
-Composer
-Github
-XAMPP
-NodeJS
-```
+* [Composer](https://getcomposer.org/download/) - nodig voor laravel installeren
+* [XAMPP](https://www.apachefriends.org/index.html) - nodig voor het hosten van de website en de database
+* [NodeJS](https://nodejs.org/en/) - nodig voor npm en vue.js
+* [Github](https://github.com/) - nodig voor het clonen van het project 
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+A step by step series of examples that tells you how to get a development env running
 
 Project installeren:
 
@@ -71,9 +67,5 @@ npm install && npm run watch
 * **Tim Blommestein** - *Most of the frontend and Vue.js, SASS and Bootstrap little parts of the backend* - [da-tokkies](https://github.com/da-tokkies)
 * **Noah Elstgeest** - *Frontend with bootstrap* - [NoahElstgeest](https://github.com/NoahElstgeest)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+See also the list of [contributors](https://github.com/Project-8-8AMO12/8AMO2_Groep4/graphs/contributors) who participated in this project.
 
