@@ -2,7 +2,7 @@
     <header>
         <!-- Top menu -->
         <div>
-            <b-navbar toggleable="lg" type="light" variant="light">
+            <b-navbar toggleable="lg" class="p-4" type="light" variant="light">
                 <b-navbar-brand href="/">
                     <img class="" src="/images/Logo-Imkers-Leiden.png" alt="Logo">
                 </b-navbar-brand>
@@ -18,6 +18,9 @@
                         </b-nav-item>
                         <b-nav-item class="h5" href="/contact">
                             Contact
+                        </b-nav-item>
+                        <b-nav-item class="h5" href="/activiteiten">
+                            Activiteiten
                         </b-nav-item>
                     </b-navbar-nav>
 
@@ -59,7 +62,7 @@
                 default: null
             }
         },
-        mounted() {
+        created() {
             console.log('navigation mounted.');
             console.log('user: ',this.user);
             if (this.user !== {}){

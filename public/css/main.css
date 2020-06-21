@@ -20,10 +20,49 @@
 }
 
 .home-row {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid #ffd73d;
+  border-radius: 2px;
 }
 
 .img-home {
   border-radius: 2px;
+}
+
+.t-header {
+  color: #9fb23a;
+  padding-left: 1rem;
+  border-left: 3px solid #ffd73d;
+  border-radius: 2px;
+}
+
+.t-yellow {
+  color: #ffd73d;
+}
+
+.t-green {
+  color: #9fb23a;
+}
+
+.c {
+  width: 50vw;
+}
+
+.c-border {
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .c {
+    width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .c {
+    width: 75vw;
+  }
 }
 

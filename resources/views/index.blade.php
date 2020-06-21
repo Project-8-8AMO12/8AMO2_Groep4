@@ -7,25 +7,25 @@
     <div class="container text-center">
         <div class="row p-3 mt-3 home-row">
             <div class="col my-auto">
-                <h2>De imker vereniging van Leiden en omstreken</h2>
+                <h1 class="t-green">De imker vereniging van Leiden en omstreken</h1>
             </div>
         </div>
         <div class="row p-3 mt-3 home-row">
-            <div class="col-sm-6 my-auto">
+            <div class="col-md-6 my-auto">
                 <p>
                     {{ $Home[0]->section1 }}
                 </p>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img img-home w-100" alt="Responsive image ">
             </div>
         </div>
 
         <div class="row p-3 mt-3 home-row">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img w-100" alt="Responsive image">
             </div>
-            <div class="col-sm-6 my-auto">
+            <div class="col-md-6 my-auto">
                 <p>
                     {{ $Home[0]->section2 }}
                 </p>

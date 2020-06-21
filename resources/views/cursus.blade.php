@@ -2,20 +2,22 @@
 
 @section('content')
     <div class="container text-center">
-        <h1 class="my-3">Cursussen</h1>
+        <h1 class="t-green my-3">Cursussen</h1>
         <div class="row">
             <div class="mt-2">
+
                 <div class="card">
-                    <div class="card-body">
-                        <h2>Basiscursus bijenteelt 2020</h2>
+                    <div class="card-body ">
+                        <h2 class="t-header">Basiscursus bijenteelt 2020</h2>
                         <p class="card-text">
                             {{ $CursusContent[0]->section1 }}
                         </p>
                         <p class="card-text mt-5">
                             {{ $CursusContent[0]->section2 }}
                         </p>
-
-                        <h2 class="mt-5 mb-2 text-center text-success text-bold">Rooster Basiscursus Bijenteelt – Leiden</h2>
+                        <div class="text-center">
+                            <h2 class="mt-5 mb-2 t-header text-bold">Rooster Basiscursus Bijenteelt – Leiden</h2>
+                        </div>
                         <div class="row">
                             <table class="table">
                                 <thead>
