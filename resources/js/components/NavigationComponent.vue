@@ -1,57 +1,54 @@
 <template>
     <header>
         <!-- Top menu -->
-        <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div>
+            <b-navbar toggleable="lg" type="light" variant="light">
+                <b-navbar-brand href="/">
+                    <img class="" src="/images/Logo-Imkers-Leiden.png" alt="Logo">
+                </b-navbar-brand>
+                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link h5 scroll-link" href="/"><img class="" src="/images/Logo-Imkers-Leiden.png" alt="Logo"></a>
-                    </li>
-                    <li class="nav-item my-auto">
-                        <a class="navbar-text h5 nav-link scroll-link" href="about">About</a>
-                    </li>
-                    <li class="nav-item my-auto">
-                        <a class="navbar-text h5 nav-link scroll-link" href="cursus">Cursussen</a>
-                    </li>
-                    <li class="nav-item my-auto">
-                        <a class="navbar-text h5 nav-link scroll-link" href="contact">Contact</a>
-                    </li>
-                </ul>
+                <b-collapse id="nav-collapse" is-nav>
+                    <b-navbar-nav>
+                        <b-nav-item class="h5" href="/about">
+                            About
+                        </b-nav-item>
+                        <b-nav-item class="h5" href="/cursus">
+                            Cursussen
+                        </b-nav-item>
+                        <b-nav-item class="h5" href="/contact">
+                            Contact
+                        </b-nav-item>
+                    </b-navbar-nav>
 
-
-
-                    <!-- if you'r logged in -->
-                <ul v-if="isLoggedIn == false" class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-text h5 nav-link" href="login">login</a>
-                    </li>
-                </ul>
-                <!-- if you'r logged in -->
-                <ul v-if="isLoggedIn == true" class="navbar-nav ml-auto">
-                    <li v-if="user.userrank" class="nav-item">
-                        <a class="navbar-text h5 nav-link" href="register">register</a>
-                    </li>
-                    <li v-if="user.userrank" class="nav-item">
-                        <a class="navbar-text h5 nav-link" href="users">users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link h5 navbar-text" href="adminpanel">admin panel</a>
-                    </li>
-                    <li class="nav-item">
-                        <h4 class="nav-link h4 navbar-text">{{user.username}}</h4>
-                    </li>
-                    <li class="nav-item my-auto">
-                        <a class="h4 btn btn-danger" v-on:click="isLoggedIn = false" href="logout" role="button">logout</a>
-
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                    <!-- Right aligned nav items -->
+                    <b-navbar-nav class="ml-auto">
+                        <b-navbar-nav right>
+                            <b-nav-item v-if="!isLoggedIn" href="login">
+                                login
+                            </b-nav-item>
+                        </b-navbar-nav>
+                        <b-navbar-nav right v-if="isLoggedIn">
+                            <b-nav-item class="h5" href="/register">
+                                Register
+                            </b-nav-item>
+                            <b-nav-item class="h5" href="/users">
+                                Users
+                            </b-nav-item>
+                            <b-nav-item class="h5" href="/adminpanel">
+                                Admin-panel
+                            </b-nav-item>
+                            <b-nav-text class="h5 navbar-text">
+                                {{user.username}}
+                            </b-nav-text>
+                            <b-button variant="danger"  size="" @click="isLoggedIn = false" role="button" href="/logout">
+                                Logout
+                            </b-button>
+                        </b-navbar-nav>
+                    </b-navbar-nav>
+                </b-collapse>
+            </b-navbar>
+        </div>
     </header>
 </template>
 <script>
@@ -82,3 +79,9 @@
         }
     }
 </script>
+
+<style scoped>
+    .navbar-text{
+        font-size: 1.3rem;
+    }
+</style>

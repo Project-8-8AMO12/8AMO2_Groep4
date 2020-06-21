@@ -4,12 +4,31 @@ $green: #9fb23a;
     margin: 0;
     padding: 0;
 }
-
+//navbar styling
 .navbar{
-    background-color: #f0f0f0;
+    background-color: #f0f0f0 !important;
     border-bottom: 2px solid black;
     &-text{
         color: $green !important;
         text-decoration: none !important;
+        padding: 0.3rem;
     }
+}
+
+
+.nav{
+    &-link{
+        color: $green !important;
+        text-decoration: none !important;
+    }
+}
+
+//homepage styling
+
+.home-row{
+    border-bottom: 2px solid black;
+}
+
+.img-home{
+    border-radius: 2px;
 }

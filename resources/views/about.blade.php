@@ -1,9 +1,13 @@
 @extends('app')
 @section('content')
     <div class="container text-center">
-        <h1>Alles over de vereniging</h1>
+        <div class="row home-row">
+            <div class="col my-auto">
+                <h1>Alles over de vereniging</h1>
+            </div>
+        </div>
         <div class="row">
-            <div class="mx-auto w-75">
+            <div class="mx-auto w-100">
                 <div class="card">
                     <div class="card-body bg-warning">
                         <p class="card-text">
@@ -13,22 +17,17 @@
                 </div>
             </div>
         </div>
-        <div class="row pt-4">
+        <div class="row pt-4 home-row">
             <div class="col-md-6">
                 <img
                     src="{{ asset('images/bijenkasten.jpg') }}"
                     class="img rounded" alt="Responsive image">
             </div>
-
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h1>{{ $About[0]->title1 }}</h1>
-                        <p class="card-text">
-                            {{ $About[0]->section1 }}
-                        </p>
-                    </div>
-                </div>
+                <h1>{{ $About[0]->title1 }}</h1>
+                <p class="card-text">
+                    {{ $About[0]->section1 }}
+                </p>
             </div>
 
             <div class="row">

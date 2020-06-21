@@ -4,12 +4,26 @@
 }
 
 .navbar {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0 !important;
   border-bottom: 2px solid black;
 }
 
 .navbar-text {
   color: #9fb23a !important;
   text-decoration: none !important;
+  padding: 0.3rem;
+}
+
+.nav-link {
+  color: #9fb23a !important;
+  text-decoration: none !important;
+}
+
+.home-row {
+  border-bottom: 2px solid black;
+}
+
+.img-home {
+  border-radius: 2px;
 }
 
