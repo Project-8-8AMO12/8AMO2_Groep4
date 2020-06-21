@@ -1,6 +1,6 @@
-# Project Title
+# Imkers Leiden
 
-One Paragraph of project description goes here
+Wij moesten voor de klant een nieuwe website maken voor imkers leiden.
 
 ## Getting Started
 
@@ -11,7 +11,10 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+Composer
+Github
+XAMPP
+NodeJS
 ```
 
 ### Installing
@@ -20,59 +23,53 @@ A step by step series of examples that tell you how to get a development env run
 
 Say what the step will be
 
-```
-Give the example
-```
+Project installeren:
 
-And repeat
-
+1. In de project map, open een command line en run daarin het volgende:
 ```
-until finished
+composer install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+2. Als dit process klaar is moet je de .env.example file naam veranderen naar .env
+3. Als je dit hebt gedaan moet je een key generaten
 ```
-Give an example
+php artisan key:generate
 ```
 
-### And coding style tests
+Als dit allemaal gedaan is gaan we de database gereed maken.
 
-Explain what these tests test and why
-
+4. Dit doen we door de volgende commands te runnen:
 ```
-Give an example
+php artisan db:create imkersleidenDB
+
+php artisan migrate
+
+php artisan db:seed
 ```
 
-## Deployment
+Nadat we de database gereed hebben gemaakt moeten we nog 2 dingen gereed maken voordat we het project kunnen gebruiken en de website kunnen gebruiken.
 
-Add additional notes about how to deploy this on a live system
+5. Om Vue.js werkend te krijgen moeten wij nog 2 commands in de command line runnen:
+```
+npm install && npm run watch
+```
+
+6. Nu is de website gereed om te gebruiken en kun je alles gebruiken wat de website heeft.
+
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Laravel](https://laravel.com/) - The PHP framework mostly for the backend
+* [Vue.js](https://vuejs.org/) - The JS framework that we used for the frontend
+* [SCSS](https://sass-lang.com/) - Used to style the website 
+* [Bootstrap](https://getbootstrap.com/) - Used to style the website 
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Christiaan van Haasteren** - *Most of the backend in Laravel and some parts of the frontend with bootstrap* - [VindicatorHQ](https://github.com/vindicatorhq)
+* **Tim Blommestein** - *Most of the frontend and Vue.js, SASS and Bootstrap little parts of the backend* - [da-tokkies](https://github.com/da-tokkies)
+* **Noah Elstgeest** - *Frontend with bootstrap* - [NoahElstgeest](https://github.com/NoahElstgeest)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -80,8 +77,3 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
