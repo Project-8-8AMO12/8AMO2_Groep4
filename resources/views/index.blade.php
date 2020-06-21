@@ -5,41 +5,30 @@
     </div>
 
     <div class="container text-center">
-        <div class="row">
+        <div class="row p-3 mt-3 home-row">
+            <div class="col my-auto">
+                <h2>De imker vereniging van Leiden en omstreken</h2>
+            </div>
+        </div>
+        <div class="row p-3 mt-3 home-row">
             <div class="col-sm-6 my-auto">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{ $Home[0]->section1 }}
-                        </p>
-                    </div>
-                </div>
+                <p>
+                    {{ $Home[0]->section1 }}
+                </p>
             </div>
             <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img" alt="Responsive image">
-                    </div>
-                </div>
+                <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img img-home w-100" alt="Responsive image ">
             </div>
         </div>
 
-        <div class="row">
+        <div class="row p-3 mt-3 home-row">
             <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img" alt="Responsive image">
-                    </div>
-                </div>
+                <img src="{{ asset('images/Voorbeeld-nieuws.jpg') }}" class="img w-100" alt="Responsive image">
             </div>
             <div class="col-sm-6 my-auto">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{ $Home[0]->section2 }}
-                        </p>
-                    </div>
-                </div>
+                <p>
+                    {{ $Home[0]->section2 }}
+                </p>
             </div>
         </div>
     </div>
