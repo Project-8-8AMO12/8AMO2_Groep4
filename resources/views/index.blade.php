@@ -7,7 +7,7 @@
     <div class="container text-center">
         <div class="row p-3 mt-3 home-row">
             <div class="col my-auto">
-                <h1 class="text-green">De imker vereniging van Leiden en omstreken</h1>
+                <h1 class="t-green">De imker vereniging van Leiden en omstreken</h1>
             </div>
         </div>
         <div class="row p-3 mt-3 home-row">
