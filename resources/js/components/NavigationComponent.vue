@@ -19,6 +19,9 @@
                         <b-nav-item class="h5" href="/contact">
                             Contact
                         </b-nav-item>
+                        <b-nav-item class="h5" href="/activiteiten">
+                            Activiteiten
+                        </b-nav-item>
                     </b-navbar-nav>
 
                     <!-- Right aligned nav items -->
