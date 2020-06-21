@@ -4,10 +4,15 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 import axios from 'axios';
+import { BootstrapVue } from 'bootstrap-vue';
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+Vue.use(BootstrapVue);
 Vue.prototype.axios = axios;
 /**
  * The following block of code may be used to automatically register your
