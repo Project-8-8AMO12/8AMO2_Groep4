@@ -8,6 +8,7 @@ use App\CursusContent;
 use App\CursusEntry;
 use App\HomeContent;
 use App\NieuwsContent;
+use App\WinkelContent;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -44,6 +45,12 @@ class PageController extends Controller
         $NieuwsContent = NieuwsContent::all();
 
         return view('news', ['NieuwsContent' => $NieuwsContent]);
+    }
+
+    public function winkel() {
+        $WinkelContent = WinkelContent::all();
+
+        return view('winkel', ['WinkelContent' => $WinkelContent]);
     }
 
     public function error(Request $request) {

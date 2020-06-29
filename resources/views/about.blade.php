@@ -7,6 +7,7 @@
                 <h1 class="t-green">Alles over de vereniging</h1>
             </div>
         </div>
+
         <div class="row mt-2">
             <div class="mx-auto mt-3 c c-border">
                     <div class="card-body bg-warning">
@@ -16,6 +17,7 @@
                     </div>
             </div>
         </div>
+
         <div class="row pt-4 home-row p-3">
             <div class="col-md-6">
                 <img
@@ -45,15 +47,13 @@
             </div>
         </div>
 
-
-        <div class=" home-row p-3">
+        <div class="home-row p-3">
             <div class="col-lg">
                 <h1 class="t-header">{{ $About[0]->title3 }}</h1>
                 <p class="card-text">
                     {{ $About[0]->section3 }}
                 </p>
             </div>
-
         </div>
 
     </div>

@@ -13,17 +13,20 @@
                         <b-nav-item class="h5" href="/about">
                             About
                         </b-nav-item>
-                        <b-nav-item class="h5" href="/cursus">
-                            Cursussen
+                        <b-nav-item class="h5" href="/activiteiten">
+                            Activiteiten
                         </b-nav-item>
                         <b-nav-item class="h5" href="/contact">
                             Contact
                         </b-nav-item>
-                        <b-nav-item class="h5" href="/activiteiten">
-                            Activiteiten
+                        <b-nav-item class="h5" href="/cursus">
+                            Cursussen
                         </b-nav-item>
                         <b-nav-item class="h5" href="/nieuws">
                             Nieuws
+                        </b-nav-item>
+                        <b-nav-item class="h5" href="/winkel">
+                            Winkel
                         </b-nav-item>
                     </b-navbar-nav>
 
@@ -31,13 +34,10 @@
                     <b-navbar-nav class="ml-auto">
                         <b-navbar-nav right>
                             <b-nav-item v-if="!isLoggedIn" href="login">
-                                login
+                                Login
                             </b-nav-item>
                         </b-navbar-nav>
                         <b-navbar-nav right v-if="isLoggedIn">
-                            <b-nav-item class="h5" href="/register">
-                                Register
-                            </b-nav-item>
                             <b-nav-item class="h5" href="/users">
                                 Users
                             </b-nav-item>

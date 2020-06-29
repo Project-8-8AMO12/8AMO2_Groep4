@@ -8,6 +8,7 @@ use App\CursusContent;
 use App\CursusEntry;
 use App\HomeContent;
 use App\NieuwsContent;
+use App\WinkelContent;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -20,6 +21,7 @@ class AdminPanelController extends Controller
         $CursusContent = CursusContent::all();
         $CursusEntry = CursusEntry::all();
         $NieuwsContent = NieuwsContent::all();
+        $WinkelContent = WinkelContent::all();
 
         return view('adminpanel', [
             'HContent' => $HomeContent,
@@ -28,6 +30,7 @@ class AdminPanelController extends Controller
             'CContent' => $CursusContent,
             'CEContent' => $CursusEntry,
             'NContent' => $NieuwsContent,
+            'WContent' => $WinkelContent
         ]);
     }
 
@@ -60,7 +63,7 @@ class AdminPanelController extends Controller
 
         $Homecontent->save();
 
-        return redirect('/adminpanel');
+        return redirect('/');
 
     }
 
@@ -108,7 +111,7 @@ class AdminPanelController extends Controller
 
         $AboutContent->save();
 
-        return redirect('/adminpanel');
+        return redirect('/about');
     }
 
     // Cursus Page admin
@@ -143,7 +146,7 @@ class AdminPanelController extends Controller
 
         $CursusContent->save();
 
-        return redirect('/adminpanel');
+        return redirect('/cursus');
     }
 
     // Cursus Entry admin
@@ -243,7 +246,7 @@ class AdminPanelController extends Controller
 
         $ActiviteitenContent->save();
 
-        return redirect('/adminpanel');
+        return redirect('/activiteiten');
 
     }
 
@@ -276,7 +279,55 @@ class AdminPanelController extends Controller
 
         $NieuwsContent->save();
 
-        return redirect('/adminpanel');
+        return redirect('/nieuws');
+
+    }
+
+    // Winkel admin
+
+    public function showWinkel() {
+        $WinkelContent = WinkelContent::all();
+
+        return view('editpages.winkeledit', ['WContent' => $WinkelContent]);
+    }
+
+    public function updateWinkel(Request $request, $id) {
+
+        try {
+            $this->validate($request, [
+                'intro' => ['required', 'string'],
+                'title1' => ['required', 'string'],
+                'section1' => ['required', 'string'],
+                'title2' => ['required', 'string'],
+                'section2' => ['required', 'string'],
+                'title3' => ['required', 'string'],
+                'section3' => ['required', 'string'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $intro = $request->get('intro');
+        $title1 = $request->get('title1');
+        $section1 = $request->get('section1');
+        $title2 = $request->get('title2');
+        $section2 = $request->get('section2');
+        $title3 = $request->get('title3');
+        $section3 = $request->get('section3');
+
+        $WinkelContent = WinkelContent::where('id', $id)->first();
+
+        $WinkelContent->intro = $intro;
+        $WinkelContent->title1 = $title1;
+        $WinkelContent->section1 = $section1;
+        $WinkelContent->title2 = $title2;
+        $WinkelContent->section2 = $section2;
+        $WinkelContent->title3 = $title3;
+        $WinkelContent->section3 = $section3;
+
+        $WinkelContent->save();
+
+        return redirect('/winkel');
 
     }
 
