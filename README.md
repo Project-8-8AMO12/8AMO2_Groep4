@@ -50,8 +50,12 @@ Nadat we de database gereed hebben gemaakt moeten we nog 2 dingen gereed maken v
 npm install && npm run watch
 ```
 
-6. Nu is de website gereed om te gebruiken en kun je alles gebruiken wat de website heeft.
+Om de website te kunnen gebruiken moeten we wel nog het volgende commando runnen:
+```
+php artisan serve
+```
 
+Nu is de website gereed om te gebruiken en kun je alles gebruiken wat de website heeft.
 
 ## Built With
 
