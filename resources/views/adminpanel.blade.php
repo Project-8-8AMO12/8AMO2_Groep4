@@ -19,6 +19,13 @@
                     </article>
                 @endforeach
 
+                @foreach($ATContent as $Activiteit)
+                    <article class="bg-dark rounded col m-2 p-2">
+                        <h1 class='titleContent text-white'>Activiteiten pagina</h1>
+                        <a class='btn btn-warning' href='activiteitedit/{{ $Activiteit->id }}' role='button'>Activiteit Aanpassen</a>
+                    </article>
+                @endforeach
+
                 @foreach($CContent as $Cursus)
                     <article class="bg-dark rounded col m-2 p-2">
                         <h1 class='titleContent text-white'>Cursus Basis Content</h1>
@@ -26,10 +33,10 @@
                     </article>
                 @endforeach
 
-                @foreach($ATContent as $Activiteit)
+                @foreach($NContent as $Nieuws)
                     <article class="bg-dark rounded col m-2 p-2">
-                        <h1 class='titleContent text-white'>Activiteiten pagina</h1>
-                        <a class='btn btn-warning' href='activiteitedit/{{ $Activiteit->id }}' role='button'>Activiteit Aanpassen</a>
+                        <h1 class='titleContent text-white'>Nieuws pagina</h1>
+                        <a class='btn btn-warning' href='nieuwsedit/{{ $Nieuws->id }}' role='button'>Nieuws Aanpassen</a>
                     </article>
                 @endforeach
             </div>

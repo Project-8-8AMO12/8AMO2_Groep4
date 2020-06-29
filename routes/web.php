@@ -17,6 +17,7 @@ Route::get('/activiteiten', 'PageController@activiteit');
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 Route::get('/cursus', 'PageController@cursus');
+Route::get('/nieuws', 'PageController@news');
 Route::get('/error', 'PageController@error')->name('error');
 
 Route::group(['middleware' => 'checkLogin'], function () {
@@ -27,6 +28,8 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::post('/aboutEdit/{id}', 'AdminPanelController@updateAbout');
     Route::get('/activiteitedit/{id}', 'AdminPanelController@showActiviteit');
     Route::post('/activiteitEdit/{id}', 'AdminPanelController@updateActiviteit');
+    Route::get('/nieuwsedit/{id}', 'AdminPanelController@showNieuws');
+    Route::post('/nieuwsEdit/{id}', 'AdminPanelController@updateNieuws');
 
     Route::get('/cursusedit/{id}', 'AdminPanelController@showCursus');
     Route::post('/cursusEdit/{id}', 'AdminPanelController@updateBasisCursus');

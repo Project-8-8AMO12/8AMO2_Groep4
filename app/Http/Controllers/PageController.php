@@ -7,6 +7,7 @@ use App\ActiviteitContent;
 use App\CursusContent;
 use App\CursusEntry;
 use App\HomeContent;
+use App\NieuwsContent;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -23,6 +24,12 @@ class PageController extends Controller
         return view('about', ['About' => $AboutContent]);
     }
 
+    public function activiteit() {
+        $ActiviteitContent = ActiviteitContent::all();
+
+        return view('activiteiten', ['Activiteiten' => $ActiviteitContent]);
+    }
+
     public function cursus() {
         $CursusContent = CursusContent::all();
         $CursusEntry = CursusEntry::all();
@@ -33,17 +40,17 @@ class PageController extends Controller
         ]);
     }
 
-    public function activiteit() {
-        $ActiviteitContent = ActiviteitContent::all();
+    public function news() {
+        $NieuwsContent = NieuwsContent::all();
 
-        return view('activiteiten', ['Activiteiten' => $ActiviteitContent]);
+        return view('news', ['NieuwsContent' => $NieuwsContent]);
     }
 
     public function error(Request $request) {
         $errorcode = $request->get('code');
         $errormessage = $request->get('message');
 
-        return view('auth.error', ['code' => $errorcode, 'message' => $errormessage]);
+        return view('errors.error', ['code' => $errorcode, 'message' => $errormessage]);
     }
 
 }

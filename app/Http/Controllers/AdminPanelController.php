@@ -7,6 +7,7 @@ use App\ActiviteitContent;
 use App\CursusContent;
 use App\CursusEntry;
 use App\HomeContent;
+use App\NieuwsContent;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -18,13 +19,15 @@ class AdminPanelController extends Controller
         $ActiviteitContent = ActiviteitContent::all();
         $CursusContent = CursusContent::all();
         $CursusEntry = CursusEntry::all();
+        $NieuwsContent = NieuwsContent::all();
 
         return view('adminpanel', [
             'HContent' => $HomeContent,
             'AContent' => $AboutContent,
+            'ATContent' => $ActiviteitContent,
             'CContent' => $CursusContent,
             'CEContent' => $CursusEntry,
-            'ATContent' => $ActiviteitContent,
+            'NContent' => $NieuwsContent,
         ]);
     }
 
@@ -239,6 +242,39 @@ class AdminPanelController extends Controller
         $ActiviteitenContent->content = $content;
 
         $ActiviteitenContent->save();
+
+        return redirect('/adminpanel');
+
+    }
+
+    // Nieuws admin
+
+    public function showNieuws() {
+        $NieuwsContent = NieuwsContent::all();
+
+        return view('editpages.nieuwsedit', ['NContent' => $NieuwsContent]);
+    }
+
+    public function updateNieuws(Request $request, $id) {
+
+        try {
+            $this->validate($request, [
+                'section1' => ['required', 'string'],
+                'section2' => ['required', 'string'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $section1 = $request->get('section1');
+        $section2 = $request->get('section2');
+
+        $NieuwsContent = NieuwsContent::where('id', $id)->first();
+
+        $NieuwsContent->section1 = $section1;
+        $NieuwsContent->section2 = $section2;
+
+        $NieuwsContent->save();
 
         return redirect('/adminpanel');
 

@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    protected $toTruncate = ['users', 'homecontents', 'aboutcontents', 'cursuscontents', 'cursusentries', 'activiteitcontents'];
+    protected $toTruncate = ['users', 'homecontents', 'aboutcontents', 'cursuscontents', 'cursusentries', 'activiteitcontents', 'nieuwscontents'];
 
     public function run()
     {
@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ActiviteitContentsTable::class);
         $this->call(CursusContentsTable::class);
         $this->call(CursusEntriesTable::class);
+        $this->call(NieuwsContentsTable::class);
 
         Model::reguard();
     }
