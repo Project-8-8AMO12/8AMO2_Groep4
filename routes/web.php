@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PageController@index');
+Route::get('/bijenstal', 'PageController@bijenstal');
 Route::get('/about', 'PageController@about');
 Route::get('/activiteiten', 'PageController@activiteit');
 Route::get('/contact', 'ContactController@index');
@@ -33,7 +34,8 @@ Route::group(['middleware' => 'checkLogin'], function () {
     Route::post('/nieuwsEdit/{id}', 'AdminPanelController@updateNieuws');
     Route::get('/winkeledit/{id}', 'AdminPanelController@showWinkel');
     Route::post('/winkelEdit/{id}', 'AdminPanelController@updateWinkel');
-
+    Route::get('/bijenstaledit/{id}', 'AdminPanelController@showBijenstal');
+    Route::post('/bijenstaledit/{id}', 'AdminPanelController@updateBijenstal');
     Route::get('/cursusedit/{id}', 'AdminPanelController@showCursus');
     Route::post('/cursusEdit/{id}', 'AdminPanelController@updateBasisCursus');
     Route::get('/createcursusentry', 'AdminPanelController@createCursusEntryView');

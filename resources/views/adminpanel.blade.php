@@ -46,6 +46,12 @@
                         <a class='btn btn-warning' href='winkeledit/{{ $Winkel->id }}' role='button'>Winkel Aanpassen</a>
                     </article>
                 @endforeach
+                @foreach($BContent as $Bijenstal)
+                    <article class="bg-dark rounded col-4 m-2 p-2">
+                        <h1 class='text-white'>Bijenstal pagina</h1>
+                        <a class='btn btn-warning' href='bijenstaledit/{{ $Bijenstal->id }}' role='button'>Bijenstal Aanpassen</a>
+                    </article>
+                @endforeach
             </div>
         </div>
 

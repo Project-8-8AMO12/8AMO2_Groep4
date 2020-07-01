@@ -9,6 +9,7 @@ use App\CursusEntry;
 use App\HomeContent;
 use App\NieuwsContent;
 use App\WinkelContent;
+use App\BijenstalContent;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -22,6 +23,7 @@ class AdminPanelController extends Controller
         $CursusEntry = CursusEntry::all();
         $NieuwsContent = NieuwsContent::all();
         $WinkelContent = WinkelContent::all();
+        $BijenstalContent = BijenstalContent::all();
 
         return view('adminpanel', [
             'HContent' => $HomeContent,
@@ -30,7 +32,8 @@ class AdminPanelController extends Controller
             'CContent' => $CursusContent,
             'CEContent' => $CursusEntry,
             'NContent' => $NieuwsContent,
-            'WContent' => $WinkelContent
+            'WContent' => $WinkelContent,
+            'BContent'=> $BijenstalContent
         ]);
     }
 
@@ -112,6 +115,35 @@ class AdminPanelController extends Controller
         $AboutContent->save();
 
         return redirect('/about');
+    }
+
+    // Bijenstal Admin
+    public function showBijenstal() {
+        $BijenstalContent = BijenstalContent::all();
+        return view('editpages.bijenstaledit', ['BContent' => $BijenstalContent]);
+    }
+
+    public function updateBijenstal(Request $request, $id) {
+
+        try {
+            $this->validate($request, [
+                'title1' => ['required', 'string'],
+                'section1' => ['required', 'string'],
+            ]);
+        } catch (ValidationException $e) {
+            echo $e;
+        }
+
+        $title1 = $request->get('title1');
+        $section1 = $request->get('section1');
+
+        $BijenstalContent = BijenstalContent::where('id', $id)->first();
+
+        $BijenstalContent->title1 = $title1;
+        $BijenstalContent->section1 = $section1;
+        $BijenstalContent->save();
+
+        return redirect('/bijenstal');
     }
 
     // Cursus Page admin

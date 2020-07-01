@@ -9,6 +9,7 @@ use App\CursusEntry;
 use App\HomeContent;
 use App\NieuwsContent;
 use App\WinkelContent;
+use App\BijenstalContent;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -51,6 +52,12 @@ class PageController extends Controller
         $WinkelContent = WinkelContent::all();
 
         return view('winkel', ['WinkelContent' => $WinkelContent]);
+    }
+
+    public function bijenstal() {
+        $Bijenstal = BijenstalContent::all();
+
+        return view('bijenstal', ['Bijenstal' => $Bijenstal]);
     }
 
     public function error(Request $request) {

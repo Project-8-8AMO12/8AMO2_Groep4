@@ -28,6 +28,9 @@
                         <b-nav-item class="h5" href="/winkel">
                             Winkel
                         </b-nav-item>
+                        <b-nav-item class="h5" href="/bijenstal">
+                            Bijenstal
+                        </b-nav-item>
                     </b-navbar-nav>
 
                     <!-- Right aligned nav items -->

@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         'cursusentries',
         'activiteitcontents',
         'nieuwscontents',
-        'winkelcontents'
+        'winkelcontents',
+        'bijenstalcontents'
     ];
 
     public function run()
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CursusEntriesTable::class);
         $this->call(NieuwsContentsTable::class);
         $this->call(WinkelContentsTable::class);
+        $this->call(BijenstalContentsTable::class);
 
         Model::reguard();
     }
