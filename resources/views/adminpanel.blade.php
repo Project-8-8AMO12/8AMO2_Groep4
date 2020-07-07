@@ -48,7 +48,10 @@
                 @endforeach
             </div>
         </div>
-
+        <div class="container text-center mt-3">
+            <h1>Vragen</h1>
+            <a class='btn btn-warning' role='button' href="vraagbeantwoord">Vragen</a>
+        </div>
         <div class="container text-center mt-3">
             <h1>Cursussen Beheren</h1>
             <a class='btn btn-primary' href='createcursusentry' role='button'>+ Cursus Aanmaken +</a>

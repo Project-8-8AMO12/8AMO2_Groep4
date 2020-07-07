@@ -20,6 +20,9 @@ Route::get('/cursus', 'PageController@cursus');
 Route::get('/nieuws', 'PageController@news');
 Route::get('/winkel', 'PageController@winkel');
 Route::get('/error', 'PageController@error')->name('error');
+Route::get('/vraagbeantwoord', 'VragenController@vraagbeantwoord');
+Route::get('/writeAnswer', 'VragenController@writeanswer');
+Route::post('/writeAnswer', 'VragenController@updatequestion');
 
 Route::group(['middleware' => 'checkLogin'], function () {
     Route::get('/adminpanel', 'AdminPanelController@index');

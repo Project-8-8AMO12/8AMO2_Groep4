@@ -11,6 +11,7 @@ use App\NieuwsContent;
 use App\WinkelContent;
 use Illuminate\Http\Request;
 
+
 class PageController extends Controller
 {
     public function index() {
@@ -52,6 +53,7 @@ class PageController extends Controller
 
         return view('winkel', ['WinkelContent' => $WinkelContent]);
     }
+
 
     public function error(Request $request) {
         $errorcode = $request->get('code');
